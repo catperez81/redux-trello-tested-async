@@ -13,12 +13,12 @@ describe('<AddForm />', () => {
         expect(wrapper.hasClass('add-button')).toEqual(true);
     });
 
-    // TODO:
-    // it('Should render the add form when editing', () => {
-    //     const wrapper = shallow(<AddForm />);
-    //     wrapper.instance().setEditing(true);
-    //     expect(wrapper.hasClass('add-form')).toEqual(true);
-    // });
+    it('Should render the add form when editing', () => {
+        const wrapper = shallow(<AddForm />);
+        wrapper.instance().setEditing(true);
+        wrapper.update();
+        expect(wrapper.hasClass('add-form')).toEqual(true);
+    });
 
     it('Should switch to editing when the add button is clicked', () => {
         const wrapper = shallow(<AddForm />);
@@ -26,17 +26,17 @@ describe('<AddForm />', () => {
         expect(wrapper.state('editing')).toEqual(true);
         expect(wrapper.hasClass('add-form')).toEqual(true);
     });
-    
-    // TODO:
-    // it('Should fire the onAdd callback when the form is submitted', () => {
-    //     const callback = jest.fn();
-    //     const wrapper = mount(<AddForm onAdd={callback} />);
-    //     const value = 'Foobar';
-    //     wrapper.instance().setEditing(true);
-    //     wrapper.find('input[type="text"]').value = value;
-    //     wrapper.simulate('submit');
-    //     expect(callback).toHaveBeenCalledWith(value);
-    // });
+
+    it('Should fire the onAdd callback when the form is submitted', () => {
+        const callback = jest.fn();
+        const wrapper = mount(<AddForm onAdd={callback} />);
+        const value = 'Foobar';
+        wrapper.instance().setEditing(true);
+        wrapper.update();
+        wrapper.find('input[type="text"]').instance().value = value;
+        wrapper.simulate('submit');
+        expect(callback).toHaveBeenCalledWith(value);
+    });
 
     it('Should not fire onAdd if the input is empty', () => {
         const callback = jest.fn();
@@ -46,5 +46,3 @@ describe('<AddForm />', () => {
         expect(callback).not.toHaveBeenCalled();
     });
 });
-
-
