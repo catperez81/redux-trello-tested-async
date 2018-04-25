@@ -7,7 +7,7 @@
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "react-redux": "^5.0.2",
-    "react-scripts": "1.0.17",
+    "react-scripts": "1.1.4",
     "react-test-renderer": "^16.2.0"
   },
   "dependencies": {
@@ -15,7 +15,7 @@
     "npm-run-all": "^4.0.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "redux": "^3.6.0",
+    "redux": "^4.0.0",
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
